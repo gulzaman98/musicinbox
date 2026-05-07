@@ -31,40 +31,30 @@ if(isset($_POST['login'])){
     $query = mysqli_query($con, "SELECT * FROM register WHERE Email = '$email' AND Password = '$pass'");
 
     if(mysqli_num_rows($query) > 0 ){
-
         $data = mysqli_fetch_assoc($query);
 
-        if($data['Status'] == 'verified'){
-            if($data['Role'] == 'admin'){
-                $_SESSION['admin'] = $data['Name'];
-                echo "<script>
-                alert('welcome to admin panel');
-                location.assign('admin_panel/public.php?index');
-                </script>";
-            }else{
-                $_SESSION['user'] = $data['id'];
-                echo "<script>
-                alert('welcome to wesbite');
-                location.assign('home.php');
-                </script>";
-            }
 
-        }else{
+        if($data['Role'] == 'admin'){
+            $_SESSION['admin'] = $data['Name'];
             echo "<script>
-            alert('please verify first');
-            location.assign('login.php');
+            alert('Welcome to Admin Panel');
+            location.assign('admin_panel/public.php?index');
+            </script>";
+        } else {
+            $_SESSION['user'] = $data['id'];
+            echo "<script>
+            alert('Welcome to Website');
+            location.assign('home.php');
             </script>";
         }
        
-    }else{
+    } else {
         echo "<script>
-        alert('invalid email or password');
-        location.assign('register.php');
+        alert('Invalid email or password');
+        location.assign('login.php'); // 
         </script>";
     }
-
 }
-
 
 // update user's data
 
