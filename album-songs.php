@@ -2,14 +2,13 @@
 include "header.php";
 include "connection.php";
 
-// URL se album ki ID pakarna
+
 $album_id = $_GET['id'];
 
-// Album aur Artist ki details nikalna
+
 $album_info = mysqli_query($con, "SELECT add_albums.*, artist.artist_name 
-                                  FROM add_albums 
-                                  JOIN artist ON add_albums.artist_id = artist.artist_id 
-                                  WHERE album_id = '$album_id'");
+ FROM add_albums JOIN artist ON add_albums.artist_id = artist.artist_id 
+    WHERE album_id = '$album_id'");
 $album = mysqli_fetch_assoc($album_info);
 ?>
 

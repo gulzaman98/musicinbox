@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="images/logo.png" alt="" style="width: 120px; margin-bottom: 10px;"></a>
+                    <a href="#"><img src="images/logo3.png" alt="" style="width: 120px; margin-bottom: 10px;"></a>
                     <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is developed by <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i> by <b>Gulzaman & Team</b>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>

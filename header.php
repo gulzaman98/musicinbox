@@ -65,7 +65,7 @@ if(!isset($_SESSION['user'])){
                 <div class="container">
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
-                        <a href="home.php" class="nav-brand"><img src="images/logo.png" alt="" style="width: 80px; height: auto"></a>
+                        <a href="home.php" class="nav-brand"><img src="images/logo3.png" alt="" style="width: 200px; height: auto"></a>
 
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>

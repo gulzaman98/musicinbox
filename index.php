@@ -24,6 +24,14 @@ if(isset($_SESSION['user'])){
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
+    <style>
+    .first-slider-img {
+        background-image: url('img/bg-img/img1.jfif?v=<?php echo time(); ?>') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+</style>
+
 </head>
 
 <body>
@@ -63,55 +71,7 @@ if(isset($_SESSION['user'])){
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="index.php">Home</a></li>
-                                    <li><a href="index.php">Year</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.php">2024</a></li>
-                                            <li><a href="index.php">2023</a></li>
-                                            <li><a href="index.php">2022</a></li>
-                                            <li><a href="index.php">2021</a></li>
-                                    
-                                                    </li>
-                                                   
-                                               
-                                            </li>
-                                        </ul>
-                                    
-                                    <li><a href="index.php">Albums</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.php">Classic</a></li>
-                                            <li><a href="index.php">Lollywood</a></li>
-                                            <li><a href="index.php">Bollywood</a></li>
-                                            <li><a href="index.php">Hollywood</a></li>
-                                    
-                                                    </li>
-                                                   
-                                               
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="index.php">Artist</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.php">Atif Aslam</a></li>
-                                            <li><a href="index.php">Kaifi Khalil</a></li>
-                                            <li><a href="index.php">Asim Azhar</a></li>
-                                            <li><a href="index.php">Ali Zafar</a></li>
-                                            <li><a href="index.php">Rahat Fateh</a></li>
-                                            <li><a href="index.php">Talha Anjum</a></li>
-                                            <li><a href="index.php">Arjeet Singh</a></li>
-                                            <li><a href="index.php">justin Bieber</a></li>
-                                    
-                                                    </li>
-                                                   
-                                               
-                                            </li>
-                                        </ul>
-                                    
-                                    <li><a href="index.php">News</a></li>
-                                    <li><a href="index.php">Contact</a></li>
-                                </ul>
+                           
 
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-cart-button d-flex align-items-center">
@@ -158,7 +118,7 @@ if(isset($_SESSION['user'])){
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-1.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url('img/bg: img/pa3jpg;?v=<?php echo time(); ?>');"></div>
                 <!-- Slide Content -->
                 <div class="container">
                     <div class="row">
@@ -176,7 +136,7 @@ if(isset($_SESSION['user'])){
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-2.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(images/sidu.jpg;);"></div>
                 <!-- Slide Content -->
                 <div class="container">
                     <div class="row">
