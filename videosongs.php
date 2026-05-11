@@ -31,13 +31,18 @@ include "header.php";
 
             <?php
             // --- SEARCH LOGIC START ---
-            $video_sql = "SELECT v.*, ar.artist_name FROM add_video v LEFT JOIN artist ar ON v.artist_id = ar.artist_id";
+           $video_sql = "SELECT v.*, ar.artist_name, y.release_year 
+              FROM add_video v 
+              LEFT JOIN artist ar ON v.artist_id = ar.artist_id
+              LEFT JOIN song_year y ON v.year_id = y.year_id";
 
-            if(isset($_GET['search']) && !empty($_GET['search'])) {
-                $search = mysqli_real_escape_string($con, $_GET['search']);
-                // Video name ya Artist name dono mein se kahin bhi match kare
-                $video_sql .= " WHERE v.video_name LIKE '%$search%' OR ar.artist_name LIKE '%$search%'";
-            }
+        if(isset($_GET['search']) && !empty($_GET['search'])) {
+         $search = mysqli_real_escape_string($con, $_GET['search']);
+            // Ab ye Video Name, Artist Name aur Release Year teeno mein search karega
+            $video_sql .= " WHERE v.video_name LIKE '%$search%' 
+                    OR ar.artist_name LIKE '%$search%' 
+                    OR y.release_year LIKE '%$search%'";
+}
 
             $video_sql .= " ORDER BY v.video_id DESC";
             // --- SEARCH LOGIC END ---
