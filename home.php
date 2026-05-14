@@ -5,7 +5,7 @@ include "header.php";
 <section class="hero-area">
     <div class="hero-slides owl-carousel">
         <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-1.jpg);"></div>
+            <div class="slide-img bg-img" style="background-image: url(images/slide3.png);"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -20,7 +20,7 @@ include "header.php";
         </div>
 
         <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-2.jpg);"></div>
+            <div class="slide-img bg-img" style="background-image: url(images/slide4.png);"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -178,22 +178,32 @@ include "header.php";
         <div class="row">
             <div class="col-12">
                 <div class="contact-form-area">
-                    <form action="code.php" method="post">
+                   <form action="code.php" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" 
+                                       pattern="[A-Za-z ]{3,}" 
+                                       title="Sirf letters likhein (Kam se kam 3)" required>
                             </div>
+                            
                             <div class="col-md-6 mb-4">
                                 <input type="email" name="email" class="form-control" placeholder="Your E-mail" required>
                             </div>
+
                             <div class="col-12 mb-4">
-                                <input type="text" name="contact" class="form-control" placeholder="Subject">
+                                <input type="text" name="contact" class="form-control" placeholder="Subject" required>
                             </div>
+
                             <div class="col-12 mb-4">
-                                <textarea name="message" class="form-control" cols="30" rows="5" placeholder="Message" required></textarea>
+                                <textarea name="message" class="form-control" cols="30" rows="5" 
+                                          placeholder="Message (Kam se kam 10 characters)" 
+                                          minlength="10" required></textarea>
                             </div>
+
                             <div class="col-12 text-center">
-                                <button class="btn oneMusic-btn mt-30" type="submit" name="feedback">Send Feedback<i class="fa fa-angle-double-right"></i></button>
+                                <button class="btn oneMusic-btn mt-30" type="submit" name="feedback">
+                                    Send Feedback <i class="fa fa-angle-double-right"></i>
+                                </button>
                             </div>
                         </div>
                     </form>

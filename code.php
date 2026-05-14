@@ -125,7 +125,7 @@ if(isset($_POST['add_album'])){
                     echo "<script>alert('Failed to move file'); window.history.back();</script>";
                 }
             } else {
-                // Ab yeh error sirf tab aayega jab extension waqai in 4 ke ilawa hogi
+              
                 echo "<script>alert('Only JPG, JPEG, PNG, and JFIF allowed'); window.history.back();</script>";
             }
         } else {
@@ -157,7 +157,7 @@ $artist_description = mysqli_real_escape_string($con, $_POST['artist_description
     
                 if (move_uploaded_file($tmp_name, $destination)) {
                   
-                    // 2. Ab query chalayein (Query same rahegi)
+                  
                     $query = mysqli_query($con, "INSERT INTO artist(artist_name, artist_image, artist_description) VALUES('$artist_name', '$artistimage', '$artist_description')");
 
                     if ($query) {
@@ -257,7 +257,7 @@ if(isset($_POST['add_song'])){
 }
     // song upload code end
 
-    // upat song code start
+    // update song code start
    
 
 if(isset($_POST['update_song'])){
@@ -638,22 +638,59 @@ if(isset($_POST['delete_artist'])){
 
 //feedback form code start
 
-if(isset($_POST['feedback'])){
-    $name    = $_POST['name'];
-    $email   = $_POST['email'];
-    $contact = $_POST['contact'];
-    $message = $_POST['message'];
 
+include "config.php"; // Check your database connection file name
+
+if(isset($_POST['feedback'])){
+    // 1. Fetch data and trim extra spaces from the beginning and end
+    $name    = mysqli_real_escape_string($con, trim($_POST['name']));
+    $email   = mysqli_real_escape_string($con, trim($_POST['email']));
+    $contact = mysqli_real_escape_string($con, trim($_POST['contact']));
+    $message = mysqli_real_escape_string($con, trim($_POST['message']));
+
+    // --- BACKEND VALIDATION ---
+
+    // A. Validate Name: Allow only letters and spaces, and ensure it is at least 3 characters long
+    if (!preg_match("/^[a-zA-Z ]*$/", $name) || strlen($name) < 3) {
+        echo "<script>
+        alert('Error: Name must contain only letters and be at least 3 characters long!');
+        window.history.back();
+        </script>";
+        exit(); // Stop execution if validation fails
+    }
+
+    // B. Validate Message: Ensure it's not just dots and has a minimum length of 10 characters
+    if (preg_match("/^\.+$/", $message) || strlen($message) < 10) {
+        echo "<script>
+        alert('Error: Message is too short or contains only invalid characters (like dots)!');
+        window.history.back();
+        </script>";
+        exit(); // Stop execution if validation fails
+    }
+
+    // C. Validate Email Format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>
+        alert('Error: Please enter a valid email address!');
+        window.history.back();
+        </script>";
+        exit(); // Stop execution if validation fails
+    }
+
+    // --- IF ALL VALIDATIONS PASS, INSERT INTO DATABASE ---
     $query = "INSERT INTO feedback (name, email, contact, message) VALUES ('$name', '$email', '$contact', '$message')";
-    
     $run = mysqli_query($con, $query);
 
     if($run){
         echo "<script>
-        alert('Feedback submited successfully');
+        alert('Feedback submitted successfully!');
         location.assign('home.php');
         </script>";
+    } else {
+        // Display database error if the query fails
+        echo "Database Error: " . mysqli_error($con);
     }
 }
-//feedback form code end
 ?>
+
+//feedback form code end
